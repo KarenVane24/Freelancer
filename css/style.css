@@ -8,20 +8,112 @@
 }
 html{
     font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after{ /*Seleccina todos los elñementos de html y aploica el box sixzing border box*/
+    box-sizing: inherit;
 }
 body{
     font-size: 16px; /*1 rem =10px*/
     font-family:"Krub", sans-serif;
 }
-.titulo{
-    text-align: center;
+h1{
     font-size: 3.8rem;
-    color: var(---negro);
-    font-family:"Krub", sans-serif;
 }
-h1 span{
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1,h2,h3{
+    text-align: center;
+}
+.titulo span{
     font-size: 2rem;
 }
+.contenedor{
+    max-width: 120rem;
+   /* margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto; se puede minimizar las lineas solo con mar<gin en forma de reloj arriba derecha abajo izquierda*/ 
+    margin: 0 auto;
 
+}
+.boton{
+    background-color: #0097A7;
+    color:var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: .5rem;
+    width: 80%;
+    text-align: center;
+}
+@media (min-width:768px){
+    .boton{
+        width: auto;
+    }
+}
+.nav-bg{
+    background-color: var(--secundario);
+}
+.navegacion-principal{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+.navegacion-principal a {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    color: var(--blanco);
+    text-decoration: none;
+}
+@media (min-width:480px){
+  
+}
+@media (min-width: 768px){
+   .navegacion-principal{
+    flex-direction: row;
+    justify-content: space-between;
+   }
+}
+.navegacion-principal a:hover{
+    background-color: var(---primario);
+    color: var(---negro);
 
+}
+.hero{
+    background-image:url(../img/five-reason.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45rem;
+    position: relative;
+}
+.contenido-hero{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, .6);  /*ANTERIOR
+    background-color: rbg(0 0 0 / 70% );  nueva manera */
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.contenido-hero h2,
+.contenido-hero p{
+    color: var(--blanco);
+}
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
