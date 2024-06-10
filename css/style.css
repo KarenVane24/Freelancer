@@ -1,49 +1,79 @@
-:root{
+:root {
     --blanco: #ffffff;
     --negro: #212121;
     ---primario: #ffc107;
     --secundario: #0097A7;
-    --gris:#757575;
+    --gris: #757575;
 
 }
-html{
+
+/*GLOBALES*/
+html {
     font-size: 62.5%;
+    /*Hack para box model*/
     box-sizing: border-box;
+    scroll-snap-type: y mandatory;
 }
-*, *:before, *:after{ /*Seleccina todos los elñementos de html y aploica el box sixzing border box*/
+
+*,
+*:before,
+*:after {
+    /*Seleccina todos los elñementos de html y aploica el box sixzing border box*/
     box-sizing: inherit;
 }
-body{
-    font-size: 16px; /*1 rem =10px*/
-    font-family:"Krub", sans-serif;
+
+body {
+    font-size: 16px;
+    /*1 rem =10px*/
+    font-family: "Krub", sans-serif;
+    background-image: linear-gradient(to top, #DFE9F3 0%, var(--blanco) 100%);
+    /*Poner el color de fondo de la pantalla con gradiente */
 }
-h1{
+
+.Sombra {
+    box-shadow: 0px 5px 15px 0px rgba(32, 112, 112, 1);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/*TIPOGRAFIA*/
+h1 {
     font-size: 3.8rem;
 }
-h2{
+
+h2 {
     font-size: 2.8rem;
 }
-h3{
+
+h3 {
     font-size: 1.8rem;
 }
-h1,h2,h3{
+
+h1,
+h2,
+h3 {
     text-align: center;
 }
-.titulo span{
+
+/*TITULOS*/
+.titulo span {
     font-size: 2rem;
 }
-.contenedor{
+
+.contenedor {
     max-width: 120rem;
-   /* margin-top: 0;
+    /* margin-top: 0;
     margin-right: auto;
     margin-bottom: 0;
-    margin-left: auto; se puede minimizar las lineas solo con mar<gin en forma de reloj arriba derecha abajo izquierda*/ 
+    margin-left: auto; se puede minimizar las lineas solo con mar<gin en forma de reloj arriba derecha abajo izquierda*/
     margin: 0 auto;
 
 }
-.boton{
+
+.boton {
     background-color: #0097A7;
-    color:var(--blanco);
+    color: var(--blanco);
     padding: 1rem 3rem;
     margin-top: 1rem;
     font-size: 2rem;
@@ -53,20 +83,28 @@ h1,h2,h3{
     border-radius: .5rem;
     width: 80%;
     text-align: center;
+    border: none;
 }
-@media (min-width:768px){
-    .boton{
+.boton :hover{
+    cursor: pointer;
+}
+
+@media (min-width:768px) {
+    .boton {
         width: auto;
     }
 }
-.nav-bg{
+
+.nav-bg {
     background-color: var(--secundario);
 }
-.navegacion-principal{
+
+.navegacion-principal {
     display: flex;
     flex-direction: column;
     font-weight: bold;
 }
+
 .navegacion-principal a {
     display: block;
     text-align: center;
@@ -74,32 +112,37 @@ h1,h2,h3{
     color: var(--blanco);
     text-decoration: none;
 }
-@media (min-width:480px){
-  
+
+@media (min-width:480px) {}
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
-@media (min-width: 768px){
-   .navegacion-principal{
-    flex-direction: row;
-    justify-content: space-between;
-   }
-}
-.navegacion-principal a:hover{
+
+.navegacion-principal a:hover {
     background-color: var(---primario);
     color: var(---negro);
 
 }
-.hero{
-    background-image:url(../img/five-reason.jpg);
+
+.hero {
+    background-image: url(../img/five-reason.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 45rem;
     position: relative;
+    margin-bottom: 2rem;
 }
-.contenido-hero{
+
+.contenido-hero {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0, .6);  /*ANTERIOR
+    background-color: rgba(0, 0, 0, .6);
+    /*ANTERIOR
     background-color: rbg(0 0 0 / 70% );  nueva manera */
 
     display: flex;
@@ -110,10 +153,129 @@ h1,h2,h3{
 }
 
 .contenido-hero h2,
-.contenido-hero p{
+.contenido-hero p {
     color: var(--blanco);
 }
-.ubicacion{
+
+.ubicacion {
     display: flex;
     align-items: flex-end;
+}
+/*SCROLL SNAP*/
+.Servicios , .navegacion-principal, .formulario{
+    scroll-snap-align: center ;
+    scroll-snap-stop: always;
+}
+
+/*SERVICIOS*/
+@media (min-width:768px) {
+    .Servicios {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        /*fracciona el tamaño de la pantalla de manera igual repeat(3,1fr)/
+        /*grid-template-columns: 30rem 30rem;
+        grid-template-rows: 20rem 80rem;
+        esta linea es lo mismo que las 2 de arriba
+        grid: 20rem 80rem / 30rem 30rem;*/
+        column-gap: 1rem;
+    }
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicio p {
+    line-height: 2;
+    text-align: center;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: #ffc107;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/*CONTACTO*/
+
+.formulario {
+    background-color: #2d2b2b6a;
+    width: min(60rem ,100%);/*Utiliza el valor mas pequeño*/
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+
+}
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--secundario);
+}
+@media (min-width:768px){
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+
+    }
+    .campo:nth-child(3),.campo:nth-child(4){
+        grid-column: 1/3;
+    }
+}
+
+.campo{
+    margin-bottom:1rem ;
+}
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: 2rem;
+    display: block;
+
+}
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+/*UTILIDADES*/
+.w-100{
+    width: 100%;
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+@media (min-width:768px){
+    .w-100{
+        width: auto;
+    }
+}
+.campo textarea{
+    height: 16rem;
+}
+.footer{
+    text-align: center;
 }
